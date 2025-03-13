@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: kata-backend
-          image: dali05/kata-app-pipeline:1.0.0-35
+          image: dali05/kata-app-pipeline:1.0.0-38
           resources:
             limits:
               memory: "256Mi"
