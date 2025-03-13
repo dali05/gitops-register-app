@@ -1,7 +1,7 @@
 pipeline {
     agent { label "Jenkins-Agent" }
     environment {
-              APP_NAME = "kata-backend-app-pipeline"
+              APP_NAME = "kata-app-pipeline"
     }
 
     stages {
