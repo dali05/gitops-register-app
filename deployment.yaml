@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kata-backend-deployment
+  name: livraison-back-deployment
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: kata-backend
+      app: livraison-back
   template:
     metadata:
       labels:
-        app: kata-backend
+        app: livraison-back
     spec:
       containers:
-        - name: kata-backend
-          image: dali05/kata-app-pipeline:1.0.0-40
+        - name: livraison-back
+          image: dali05/livraison-back-pipeline:1.0.0-40
           resources:
             limits:
               memory: "256Mi"
