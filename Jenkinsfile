@@ -1,7 +1,7 @@
 pipeline {
     agent { label "Jenkins-Agent" }
     environment {
-              APP_NAME = "livraison-back-pipeline"
+              APP_NAME = "livraison-back-app-pipeline"
     }
 
     stages {
