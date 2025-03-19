@@ -13,15 +13,15 @@ spec:
         app: pgadmin
     spec:
       containers:
-      - name: pgadmin
-        image: dpage/pgadmin4:latest
-        ports:
-        - containerPort: 5050
-        env:
-        - name: PGADMIN_DEFAULT_EMAIL
-          value: test@gmail.com
-        - name: PGADMIN_DEFAULT_PASSWORD
-          value: 1234
+        - name: pgadmin
+          image: dpage/pgadmin4:latest
+          ports:
+            - containerPort: 5050
+          env:
+            - name: PGADMIN_DEFAULT_EMAIL
+              value: test@gmail.com
+            - name: PGADMIN_DEFAULT_PASSWORD
+              value: "1234"  # Ajout des guillemets autour de la valeur
 ---
 apiVersion: v1
 kind: Service
@@ -31,7 +31,7 @@ spec:
   selector:
     app: pgadmin
   ports:
-  - protocol: TCP
-    port: 5050
-    targetPort: 5050
+    - protocol: TCP
+      port: 5050
+      targetPort: 5050
   type: LoadBalancer
