@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: livraison-back
-          image: dali05/livraison-back-pipeline:1.0.0-40
+          image: dali05/livraison-back-pipeline:1.0.0-50
           resources:
             limits:
               memory: "256Mi"
