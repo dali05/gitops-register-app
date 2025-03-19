@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: livraison-back
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/dali05/gitops-register-app.git
+    targetRevision: main
+    path: k8s  # 📌 Dossier où se trouvent tes fichiers YAML
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
