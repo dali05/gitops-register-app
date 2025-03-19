@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: livraison-back
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: livraison-back
+  template:
+    metadata:
+      labels:
+        app: livraison-back
+    spec:
+      containers:
+      - name: livraison-back
+        image: dali05/livraison-back-pipeline:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_DATASOURCE_URL
+          value: jdbc:postgresql://postgres-service:5432/bd_livraison
+        - name: SPRING_DATASOURCE_USERNAME
+          value: admin
+        - name: SPRING_DATASOURCE_PASSWORD
+          value: admin
+        - name: SPRING_KAFKA_BOOTSTRAP_SERVERS
+          value: kafka-service:9092
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: livraison-back-service
+spec:
+  selector:
+    app: livraison-back
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
+  type: LoadBalancer
