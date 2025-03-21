@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: livraison-back-pipeline:1.0.0-43
+  name: livraison-back-pipeline:6
 spec:
   replicas: 2
   selector:
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: livraison-back
-          image: dali05/livraison-back-pipeline:1.0.0-43
+          image: dali05/livraison-back-pipeline:6
           resources:
             limits:
               memory: "256Mi"
